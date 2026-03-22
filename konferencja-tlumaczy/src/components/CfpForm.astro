@@ -1,0 +1,433 @@
+---
+interface Props {
+  webhookUrl?: string;
+}
+
+const { webhookUrl = '' } = Astro.props;
+
+const tracks = [
+  'Biznes i przedsiębiorczość',
+  'Technologia i innowacje',
+  'Zagadnienia językowe i specjalizacje tłumaczeniowe',
+  'Rozwój zawodowy i dydaktyka',
+  'Przyszłość branży',
+];
+
+const formats = [
+  { value: 'prelekcja', label: 'Prelekcja (ok. 60 min z sesją Q&A)' },
+  { value: 'warsztat', label: 'Warsztat (90–180 min)' },
+  { value: 'panel', label: 'Dyskusja panelowa' },
+];
+---
+
+<form class="cfp-form" id="cfp-form" data-webhook={webhookUrl} novalidate>
+
+  <fieldset class="cfp-form__section">
+    <legend>O Tobie</legend>
+
+    <div class="cfp-form__field">
+      <label for="cfp-name">Imię i nazwisko <span class="required" aria-hidden="true">*</span></label>
+      <input type="text" id="cfp-name" name="speaker_name" required autocomplete="name" />
+    </div>
+
+    <div class="cfp-form__field">
+      <label for="cfp-email">Adres e-mail <span class="required" aria-hidden="true">*</span></label>
+      <input type="email" id="cfp-email" name="speaker_email" required autocomplete="email" />
+    </div>
+
+    <div class="cfp-form__field">
+      <label for="cfp-bio">
+        Biogram
+        <span class="required" aria-hidden="true">*</span>
+        <span class="cfp-form__hint">Kim jesteś, czym się zajmujesz? (max 500 znaków)</span>
+      </label>
+      <textarea id="cfp-bio" name="speaker_bio" required maxlength="500" rows="3"></textarea>
+      <span class="cfp-form__counter" data-for="cfp-bio">0 / 500</span>
+    </div>
+
+    <div class="cfp-form__field">
+      <label for="cfp-experience">
+        Wcześniejsze wystąpienia
+        <span class="cfp-form__hint">Opcjonalne — czy występowałeś/aś na innych konferencjach?</span>
+      </label>
+      <textarea id="cfp-experience" name="speaker_experience" maxlength="500" rows="2"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset class="cfp-form__section">
+    <legend>Twoje wystąpienie</legend>
+
+    <div class="cfp-form__field">
+      <label for="cfp-title">
+        Tytuł wystąpienia
+        <span class="required" aria-hidden="true">*</span>
+        <span class="cfp-form__hint">Krótki, chwytliwy tytuł (max 150 znaków)</span>
+      </label>
+      <input type="text" id="cfp-title" name="talk_title" required maxlength="150" />
+      <span class="cfp-form__counter" data-for="cfp-title">0 / 150</span>
+    </div>
+
+    <div class="cfp-form__field">
+      <label for="cfp-abstract">
+        Opis wystąpienia
+        <span class="required" aria-hidden="true">*</span>
+        <span class="cfp-form__hint">Czego dowiedzą się uczestnicy? (max 1000 znaków)</span>
+      </label>
+      <textarea id="cfp-abstract" name="abstract" required maxlength="1000" rows="5"></textarea>
+      <span class="cfp-form__counter" data-for="cfp-abstract">0 / 1000</span>
+    </div>
+
+    <div class="cfp-form__field">
+      <label>Ścieżka tematyczna <span class="required" aria-hidden="true">*</span></label>
+      <div class="cfp-form__radio-group">
+        {tracks.map((track, i) => (
+          <label class="cfp-form__radio">
+            <input type="radio" name="track" value={track} required />
+            <span>{track}</span>
+          </label>
+        ))}
+        <label class="cfp-form__radio cfp-form__radio--other">
+          <input type="radio" name="track" value="__other" />
+          <span>Inna:</span>
+          <input
+            type="text"
+            name="track_other"
+            class="cfp-form__inline-input"
+            placeholder="wpisz ścieżkę"
+            disabled
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="cfp-form__field">
+      <label>Forma wystąpienia <span class="required" aria-hidden="true">*</span></label>
+      <div class="cfp-form__radio-group">
+        {formats.map(f => (
+          <label class="cfp-form__radio">
+            <input type="radio" name="format" value={f.value} required />
+            <span>{f.label}</span>
+          </label>
+        ))}
+        <label class="cfp-form__radio cfp-form__radio--other">
+          <input type="radio" name="format" value="__other" />
+          <span>Inna:</span>
+          <input
+            type="text"
+            name="format_other"
+            class="cfp-form__inline-input"
+            placeholder="wpisz formę"
+            disabled
+          />
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="cfp-form__section cfp-form__section--consent">
+    <label class="cfp-form__checkbox">
+      <input type="checkbox" name="consent" required />
+      <span>
+        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu organizacji
+        Konferencji Tłumaczy 2026, w tym na wykorzystanie wizerunku w materiałach
+        informacyjnych i promocyjnych. <span class="required" aria-hidden="true">*</span>
+      </span>
+    </label>
+  </fieldset>
+
+  <div class="cfp-form__actions">
+    <button type="submit" class="btn btn--accent cfp-form__submit">
+      Wyślij zgłoszenie
+    </button>
+    <p class="cfp-form__status" id="cfp-status" aria-live="polite"></p>
+  </div>
+</form>
+
+<style>
+  .cfp-form {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cfp-form__section {
+    border: none;
+    padding: 0;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cfp-form__section legend {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-accent);
+    width: 100%;
+  }
+
+  .cfp-form__section--consent {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cfp-form__field {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cfp-form__field > label:first-child {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+  }
+
+  .cfp-form__hint {
+    display: block;
+    font-weight: 400;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+  }
+
+  .required {
+    color: var(--color-error);
+  }
+
+  .cfp-form input[type="text"],
+  .cfp-form input[type="email"],
+  .cfp-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .cfp-form input:focus,
+  .cfp-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.1);
+  }
+
+  .cfp-form.was-validated input:invalid:not(:focus),
+  .cfp-form.was-validated textarea:invalid:not(:focus),
+  .cfp-form input.touched:invalid:not(:focus),
+  .cfp-form textarea.touched:invalid:not(:focus) {
+    border-color: var(--color-error);
+  }
+
+  .cfp-form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .cfp-form__counter {
+    display: block;
+    text-align: right;
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+  }
+
+  .cfp-form__counter.near-limit {
+    color: var(--color-accent-dark);
+    font-weight: 500;
+  }
+
+  .cfp-form__counter.at-limit {
+    color: var(--color-error);
+    font-weight: 700;
+  }
+
+  /* Radio / checkbox groups */
+  .cfp-form__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.3rem;
+  }
+
+  .cfp-form__radio,
+  .cfp-form__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .cfp-form__radio input[type="radio"],
+  .cfp-form__checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    accent-color: var(--color-primary);
+  }
+
+  .cfp-form__radio--other {
+    flex-wrap: wrap;
+  }
+
+  .cfp-form__inline-input {
+    width: auto !important;
+    flex: 1;
+    min-width: 160px;
+    padding: 0.35rem 0.6rem !important;
+    font-size: 0.9rem !important;
+    margin-left: 0.25rem;
+  }
+
+  .cfp-form__inline-input:disabled {
+    opacity: 0.4;
+  }
+
+  /* Actions */
+  .cfp-form__actions {
+    text-align: center;
+    padding-top: var(--spacing-sm);
+  }
+
+  .cfp-form__submit {
+    min-width: 240px;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+  }
+
+  .cfp-form__status {
+    margin-top: var(--spacing-sm);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .cfp-form__status.success { color: var(--color-success); }
+  .cfp-form__status.error { color: var(--color-error); }
+
+  @media (max-width: 480px) {
+    .cfp-form__submit {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('cfp-form') as HTMLFormElement;
+    const status = document.getElementById('cfp-status') as HTMLElement;
+    if (!form) return;
+
+    // Character counters
+    form.querySelectorAll<HTMLElement>('.cfp-form__counter').forEach(counter => {
+      const targetId = counter.dataset.for;
+      if (!targetId) return;
+      const field = document.getElementById(targetId) as HTMLInputElement | HTMLTextAreaElement;
+      if (!field) return;
+      const max = Number(field.maxLength);
+
+      function update() {
+        const len = field.value.length;
+        counter.textContent = `${len} / ${max}`;
+        counter.classList.toggle('near-limit', len > max * 0.85 && len < max);
+        counter.classList.toggle('at-limit', len >= max);
+      }
+      field.addEventListener('input', update);
+      update();
+    });
+
+    // "Other" radio → enable/disable inline text input
+    form.querySelectorAll<HTMLElement>('.cfp-form__radio--other').forEach(otherLabel => {
+      const radio = otherLabel.querySelector('input[type="radio"]') as HTMLInputElement;
+      const textInput = otherLabel.querySelector('.cfp-form__inline-input') as HTMLInputElement;
+      if (!radio || !textInput) return;
+
+      const groupName = radio.name;
+      const allRadios = form.querySelectorAll<HTMLInputElement>(`input[name="${groupName}"]`);
+
+      allRadios.forEach(r => {
+        r.addEventListener('change', () => {
+          const isOther = radio.checked;
+          textInput.disabled = !isOther;
+          if (isOther) textInput.focus();
+          else textInput.value = '';
+        });
+      });
+    });
+
+    // Mark fields as touched on blur
+    form.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('blur', () => field.classList.add('touched'));
+    });
+
+    // Submit handler
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      form.classList.add('was-validated');
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(form);
+      const data: Record<string, string> = {};
+      fd.forEach((val, key) => { data[key] = val as string; });
+
+      // Resolve "other" values
+      if (data.track === '__other') data.track = data.track_other || 'Inna';
+      if (data.format === '__other') data.format = data.format_other || 'Inna';
+      delete data.track_other;
+      delete data.format_other;
+      delete data.consent;
+
+      status.textContent = 'Wysyłam zgłoszenie...';
+      status.className = 'cfp-form__status';
+
+      const submitBtn = form.querySelector('.cfp-form__submit') as HTMLButtonElement;
+      submitBtn.disabled = true;
+
+      try {
+        const webhookUrl = (form.dataset.webhook || '').trim();
+        if (!webhookUrl) {
+          const subject = encodeURIComponent(`CFP 2026: ${data.talk_title}`);
+          const body = encodeURIComponent(
+            Object.entries(data).map(([k, v]) => `${k}: ${v}`).join('\n\n')
+          );
+          window.location.href = `mailto:kontakt@konferencjatlumaczy.pl?subject=${subject}&body=${body}`;
+          status.textContent = 'Otwieram klienta email — wyślij wiadomość, żeby dokończyć zgłoszenie.';
+          status.classList.add('success');
+          submitBtn.disabled = false;
+          return;
+        }
+
+        const res = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...data, submitted_at: new Date().toISOString() }),
+        });
+
+        if (res.ok) {
+          status.textContent = 'Dziękujemy za zgłoszenie! Potwierdzenie otrzymasz na podany adres e-mail.';
+          status.classList.add('success');
+          form.reset();
+          form.querySelectorAll<HTMLElement>('.cfp-form__counter').forEach(c => {
+            const fld = document.getElementById(c.dataset.for || '');
+            if (fld) c.textContent = `0 / ${(fld as HTMLInputElement).maxLength}`;
+          });
+        } else {
+          throw new Error('Błąd serwera');
+        }
+      } catch {
+        status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na kontakt@konferencjatlumaczy.pl.';
+        status.classList.add('error');
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script>

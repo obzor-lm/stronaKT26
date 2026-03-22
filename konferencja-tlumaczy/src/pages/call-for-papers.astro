@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import CfpForm from '../components/CfpForm.astro';
+import NewsletterCTA from '../components/NewsletterCTA.astro';
 ---
 
 <Base title="Zgłoś temat" description="Call for Papers — zgłoś temat prezentacji na Konferencję Tłumaczy 2026.">
@@ -8,23 +10,52 @@ import Base from '../layouts/Base.astro';
       <p class="page-hero__overline">Call for Papers</p>
       <h1>Zgłoś swój temat</h1>
       <p class="page-hero__lead">
-        Masz temat, którym chcesz się podzielić z branżą? Zgłoś go — uczestnicy zagłosują na najciekawsze propozycje.
+        Masz temat, którym chcesz się podzielić z branżą? Zgłoś go — uczestnicy
+        zagłosują na najciekawsze propozycje i to oni zdecydują o programie konferencji.
       </p>
     </div>
   </section>
 
   <section class="section">
-    <div class="container container--narrow text-center">
-      <span class="badge">Wkrótce</span>
-      <h2 class="mt-md">Formularz zgłoszeniowy w przygotowaniu</h2>
-      <p class="text-muted mt-sm">
-        Przyjmowanie tematów ruszy wkrótce. Zapisz się na newsletter, żeby nie przegapić otwarcia.
-      </p>
-      <a href="mailto:kontakt@konferencjatlumaczy.pl?subject=Zapis na newsletter" class="btn btn--primary mt-md">
-        Powiadom mnie
-      </a>
+    <div class="container container--narrow">
+      <div class="cfp-info">
+        <div class="cfp-info__item">
+          <h3>Jak to działa?</h3>
+          <ol class="cfp-steps">
+            <li>Wypełnij formularz zgłoszeniowy poniżej</li>
+            <li>Otrzymasz potwierdzenie na e-mail</li>
+            <li>Uczestnicy zagłosują na najciekawsze tematy</li>
+            <li>Tematy z największą liczbą głosów trafią do programu</li>
+          </ol>
+        </div>
+        <div class="cfp-info__item">
+          <h3>Kogo szukamy?</h3>
+          <p>
+            Niezależnie od tego, czy jesteś doświadczonym prelegentem, czy dopiero
+            chcesz spróbować — liczy się wartość tematu. Szukamy praktycznych
+            prezentacji, warsztatów i dyskusji, które pomogą tłumaczom rozwijać się
+            zawodowo.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="section section--alt" id="formularz">
+    <div class="container container--narrow">
+      <h2 class="text-center">Formularz zgłoszeniowy</h2>
+      <p class="text-center text-muted mb-lg" style="max-width: 50ch; margin-left: auto; margin-right: auto;">
+        Pola oznaczone <span style="color: var(--color-error);">*</span> są wymagane.
+        Zgłoszenie zajmuje ok. 5–10 minut.
+      </p>
+      <CfpForm />
+    </div>
+  </section>
+
+  <NewsletterCTA
+    heading="Nie chcesz zgłaszać tematu?"
+    text="Zapisz się na newsletter — powiadomimy Cię, gdy ruszy głosowanie na tematy."
+  />
 </Base>
 
 <style>
@@ -33,11 +64,46 @@ import Base from '../layouts/Base.astro';
     background: var(--color-bg-alt);
     border-bottom: 1px solid var(--color-border);
   }
+
   .page-hero__overline {
-    font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.12em; color: var(--color-accent-dark); margin-bottom: var(--spacing-xs);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--spacing-xs);
   }
+
   .page-hero__lead {
-    font-size: 1.2rem; color: var(--color-text-muted); max-width: 52ch; margin-top: var(--spacing-sm);
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 52ch;
+    margin-top: var(--spacing-sm);
+  }
+
+  .cfp-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .cfp-info__item h3 {
+    color: var(--color-primary);
+  }
+
+  .cfp-steps {
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cfp-steps li {
+    line-height: 1.5;
+  }
+
+  .cfp-steps li::marker {
+    color: var(--color-accent);
+    font-weight: 700;
   }
 </style>
