@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="404 — Nie znaleziono" description="Strona, której szukasz, nie istnieje." noindex>
+  <section class="error-page">
+    <div class="container text-center">
+      <p class="error-page__code">404</p>
+      <h1>Strona nie istnieje</h1>
+      <p class="text-muted mt-sm" style="max-width: 42ch; margin-left: auto; margin-right: auto;">
+        Być może link jest nieaktualny albo strona została przeniesiona.
+      </p>
+      <div class="error-page__actions mt-md">
+        <a href="/" class="btn btn--primary">Strona główna</a>
+        <a href="/blog/" class="btn btn--outline">Blog</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .error-page {
+    padding: var(--spacing-xl) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .error-page__code {
+    font-family: var(--font-heading);
+    font-size: clamp(5rem, 15vw, 10rem);
+    color: var(--color-border);
+    line-height: 1;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .error-page__actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+</style>

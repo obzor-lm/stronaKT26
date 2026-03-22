@@ -1,26 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import editionsData from '../data/editions.json';
 
-// Dane archiwalne — przenieś do src/data/editions.json jak urosną
-const editions = [
-  {
-    year: 2024,
-    date: '28 września 2024',
-    location: 'Warszawa',
-    attendees: null,
-    highlights: ['Tłumaczenie maszynowe w praktyce', 'AI a przyszłość zawodu', 'Panel: stawki w 2024'],
-    link: null,
-  },
-  {
-    year: 2023,
-    date: '30 września 2023',
-    location: 'Warszawa',
-    attendees: null,
-    highlights: ['Warsztaty CAT tools', 'Marketing dla tłumaczy', 'Networking'],
-    link: null,
-  },
-  // Dodaj kolejne edycje tutaj
-];
+const editions = editionsData;
 ---
 
 <Base

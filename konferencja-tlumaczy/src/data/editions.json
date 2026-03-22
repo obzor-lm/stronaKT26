@@ -1,7 +1,7 @@
 [
   {
     "year": 2025,
-    "date": "2025-09-27",
+    "date": "27 września 2025",
     "location": "Warszawa",
     "attendees": null,
     "highlights": [],
@@ -9,10 +9,18 @@
   },
   {
     "year": 2024,
-    "date": "2024-09-28",
+    "date": "28 września 2024",
     "location": "Warszawa",
     "attendees": null,
-    "highlights": [],
+    "highlights": ["Tłumaczenie maszynowe w praktyce", "AI a przyszłość zawodu", "Panel: stawki w 2024"],
+    "link": null
+  },
+  {
+    "year": 2023,
+    "date": "30 września 2023",
+    "location": "Warszawa",
+    "attendees": null,
+    "highlights": ["Warsztaty CAT tools", "Marketing dla tłumaczy", "Networking"],
     "link": null
   }
 ]

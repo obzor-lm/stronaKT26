@@ -1,0 +1,65 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date: Date;
+  image?: string;
+}
+
+const { href, title, description, date, image } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('pl-PL', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<a href={href} class="blog-card card">
+  {image && (
+    <img
+      src={image}
+      alt={title}
+      class="blog-card__image"
+      loading="lazy"
+    />
+  )}
+  <div class="blog-card__body">
+    <time class="blog-card__date" datetime={date.toISOString()}>
+      {formattedDate}
+    </time>
+    <h3>{title}</h3>
+    <p class="text-muted">{description}</p>
+  </div>
+</a>
+
+<style>
+  .blog-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card__image {
+    width: calc(100% + 2 * var(--spacing-md));
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius) var(--radius) 0 0;
+    margin: calc(-1 * var(--spacing-md));
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .blog-card__date {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .blog-card__body h3 {
+    margin-top: 0.3rem;
+    color: var(--color-primary-dark);
+  }
+</style>

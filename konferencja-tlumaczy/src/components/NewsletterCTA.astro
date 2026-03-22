@@ -14,12 +14,117 @@ const {
   <div class="container text-center">
     <h2>{heading}</h2>
     <p class="text-muted" style="max-width: 48ch; margin: 0 auto var(--spacing-md);">{text}</p>
-    <!-- 
-      TODO: Podmień na formularz n8n webhook lub link do narzędzia mailingowego.
-      Poniżej placeholder z prostym mailto.
-    -->
-    <a href="mailto:konferencja@zztp.pl?subject=Zapis na newsletter" class="btn btn--primary">
-      Zapisz się na newsletter
-    </a>
+
+    <form class="newsletter-form" id="newsletter-form">
+      <div class="newsletter-form__row">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Twój adres email"
+          autocomplete="email"
+          class="newsletter-form__input"
+        />
+        <button type="submit" class="btn btn--primary newsletter-form__btn">
+          Zapisz się
+        </button>
+      </div>
+      <p class="newsletter-form__consent text-muted">
+        Klikając „Zapisz się" wyrażasz zgodę na otrzymywanie informacji o Konferencji Tłumaczy.
+        Możesz się wypisać w każdej chwili.
+      </p>
+      <p class="newsletter-form__status" id="newsletter-status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
+
+<style>
+  .newsletter-form__row {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .newsletter-form__input {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.85rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-text);
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-form__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .newsletter-form__consent {
+    font-size: 0.78rem;
+    max-width: 420px;
+    margin: var(--spacing-sm) auto 0;
+  }
+
+  .newsletter-form__status {
+    margin-top: var(--spacing-sm);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .newsletter-form__status.success { color: var(--color-success); }
+  .newsletter-form__status.error { color: var(--color-error); }
+
+  @media (max-width: 480px) {
+    .newsletter-form__btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const status = document.getElementById('newsletter-status') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = new FormData(form).get('email') as string;
+
+    status.textContent = 'Zapisuję...';
+    status.className = 'newsletter-form__status';
+
+    try {
+      const webhookUrl = (form.dataset.webhook || '').trim();
+      if (!webhookUrl) {
+        // Fallback: mailto if no webhook configured yet
+        window.location.href = `mailto:konferencja@zztp.pl?subject=Zapis na newsletter&body=Proszę o zapisanie na newsletter: ${encodeURIComponent(email)}`;
+        status.textContent = 'Otwieram klienta email...';
+        status.classList.add('success');
+        return;
+      }
+
+      const res = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        status.textContent = 'Dziękujemy! Sprawdź swoją skrzynkę.';
+        status.classList.add('success');
+        form.reset();
+      } else {
+        throw new Error('Błąd serwera');
+      }
+    } catch {
+      status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na konferencja@zztp.pl.';
+      status.classList.add('error');
+    }
+  });
+</script>

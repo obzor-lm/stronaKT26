@@ -1,5 +1,10 @@
 ---
 const year = new Date().getFullYear();
+
+const socialLinks = [
+  { label: 'Facebook', abbr: 'FB', href: 'https://www.facebook.com/zztp.pl' },
+  { label: 'LinkedIn', abbr: 'LI', href: 'https://www.linkedin.com/company/zztp' },
+];
 ---
 
 <footer class="footer">
@@ -15,9 +20,12 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <p><strong>Śledź nas</strong></p>
-      <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
-        <a href="#" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+      <div class="footer__social">
+        {socialLinks.map(link => (
+          <a href={link.href} target="_blank" rel="noopener" aria-label={link.label}>
+            {link.abbr}
+          </a>
+        ))}
       </div>
     </div>
   </div>
@@ -25,3 +33,11 @@ const year = new Date().getFullYear();
     <p>&copy; {year} ZZTP. Wszelkie prawa zastrzeżone.</p>
   </div>
 </footer>
+
+<style>
+  .footer__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+</style>
