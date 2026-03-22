@@ -103,7 +103,7 @@ const {
       const webhookUrl = (form.dataset.webhook || '').trim();
       if (!webhookUrl) {
         // Fallback: mailto if no webhook configured yet
-        window.location.href = `mailto:konferencja@zztp.pl?subject=Zapis na newsletter&body=Proszę o zapisanie na newsletter: ${encodeURIComponent(email)}`;
+        window.location.href = `mailto:kontakt@konferencjatlumaczy.pl?subject=Zapis na newsletter&body=Proszę o zapisanie na newsletter: ${encodeURIComponent(email)}`;
         status.textContent = 'Otwieram klienta email...';
         status.classList.add('success');
         return;
@@ -123,7 +123,7 @@ const {
         throw new Error('Błąd serwera');
       }
     } catch {
-      status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na konferencja@zztp.pl.';
+      status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na kontakt@konferencjatlumaczy.pl.';
       status.classList.add('error');
     }
   });

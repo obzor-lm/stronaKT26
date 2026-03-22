@@ -5,7 +5,7 @@ Strona internetowa i system marketingowy Konferencji Tłumaczy 2026.
 - **Data:** 26 września 2026
 - **Miejsce:** Warszawa
 - **Strona:** https://www.konferencja-tlumaczy.pl
-- **Organizator:** ZZTP
+- **Organizator:** Konferencja Tłumaczy
 
 ## Stack
 
