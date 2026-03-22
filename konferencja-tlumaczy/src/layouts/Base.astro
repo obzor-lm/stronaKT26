@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Konferencja Tłumaczy 2026 — 26 września, Warszawa. Spotkanie branży tłumaczeniowej.',
+  image = '/og-image.png',
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(image, Astro.site);
+
+// Aktywna strona do podświetlenia w nav
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Start' },
+  { href: '/call-for-papers/', label: 'Zgłoś temat' },
+  { href: '/glosowanie/', label: 'Głosowanie' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/o-konferencji/', label: 'O konferencji' },
+];
+---
+
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} | Konferencja Tłumaczy 2026</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:locale" content="pl_PL" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Konferencja Tłumaczy 2026",
+    "description": description,
+    "startDate": "2026-09-26T09:00:00+02:00",
+    "endDate": "2026-09-26T17:00:00+02:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Warszawa",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Warszawa",
+        "addressCountry": "PL"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "ZZTP"
+    },
+    "image": ogImageUrl.toString(),
+    "url": canonicalUrl.toString()
+  })} />
+</head>
+<body>
+  <!-- Nawigacja -->
+  <nav class="nav" aria-label="Nawigacja główna">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="/logo.svg" alt="Konferencja Tłumaczy" width="36" height="36" />
+        <span>Konferencja Tłumaczy</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav__links" id="nav-links">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={currentPath === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Treść -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- Stopka -->
+  <Footer />
+
+  <!-- Mobile nav toggle -->
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      links?.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

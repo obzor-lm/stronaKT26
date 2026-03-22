@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{SUBJECT}}</title>
+  <!--
+    SZABLON NEWSLETTERA — Konferencja Tłumaczy 2026
+    
+    Użycie:
+    1. Skopiuj ten plik jako nowy newsletter: 2026-XX-nazwa.html
+    2. Podmień {{ZMIENNE}} na treść
+    3. Testuj w Litmus/Email on Acid lub wyślij testowo
+    4. Wklej HTML do narzędzia mailingowego
+    
+    ZMIENNE:
+    {{SUBJECT}}     — tytuł emaila
+    {{PREHEADER}}   — tekst podglądu w skrzynce
+    {{HEADING}}     — nagłówek główny
+    {{CONTENT}}     — treść (HTML)
+    {{CTA_TEXT}}    — tekst przycisku CTA
+    {{CTA_URL}}     — URL przycisku CTA
+    {{FOOTER_EXTRA}} — dodatkowy tekst w stopce (opcja)
+  -->
+  <style>
+    /* Reset for email clients */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#f0efe8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+
+  <!-- Preheader (niewidoczny, widoczny w podglądzie skrzynki) -->
+  <div style="display:none; max-height:0; overflow:hidden; font-size:1px; line-height:1px; color:#f0efe8;">
+    {{PREHEADER}}
+  </div>
+
+  <!-- Outer wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0efe8;">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+
+        <!-- Email container (600px) -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:12px; overflow:hidden; max-width:600px;">
+          
+          <!-- Header z logo -->
+          <tr>
+            <td style="background-color:#1a3a5c; padding: 24px 32px; text-align:center;">
+              <!--
+              <img src="https://www.konferencja-tlumaczy.pl/logo-white.png" alt="Konferencja Tłumaczy" width="180" style="display:inline-block;">
+              -->
+              <p style="margin:0; font-size:20px; font-weight:700; color:#ffffff; font-family: Georgia, serif;">
+                Konferencja Tłumaczy 2026
+              </p>
+              <p style="margin:4px 0 0; font-size:13px; color:#e8c06a; letter-spacing:0.08em; text-transform:uppercase;">
+                26 września · Warszawa
+              </p>
+            </td>
+          </tr>
+
+          <!-- Treść główna -->
+          <tr>
+            <td style="padding: 40px 32px;">
+              
+              <h1 style="margin:0 0 16px; font-size:26px; line-height:1.2; color:#0f2440; font-family: Georgia, serif;">
+                {{HEADING}}
+              </h1>
+
+              <div style="font-size:16px; line-height:1.7; color:#1c1c1a;">
+                {{CONTENT}}
+              </div>
+
+              <!-- CTA Button -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                <tr>
+                  <td style="background-color:#d4a03c; border-radius:8px;">
+                    <a href="{{CTA_URL}}" target="_blank" style="display:inline-block; padding:14px 32px; font-size:16px; font-weight:700; color:#0f2440; text-decoration:none; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">
+                      {{CTA_TEXT}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Separator -->
+          <tr>
+            <td style="padding: 0 32px;">
+              <hr style="border:none; border-top:1px solid #d8d7d0; margin:0;">
+            </td>
+          </tr>
+
+          <!-- Stopka -->
+          <tr>
+            <td style="padding: 24px 32px; font-size:13px; color:#8a8a82; line-height:1.6;">
+              <p style="margin:0;">
+                Konferencja Tłumaczy 2026 · Organizator: <a href="https://zztp.pl" style="color:#1a3a5c;">ZZTP</a>
+              </p>
+              {{FOOTER_EXTRA}}
+              <p style="margin:8px 0 0;">
+                <a href="{{UNSUBSCRIBE_URL}}" style="color:#8a8a82; text-decoration:underline;">Wypisz się z newslettera</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /Email container -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

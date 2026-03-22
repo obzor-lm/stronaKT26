@@ -1,0 +1,17 @@
+{
+  "_info": "Eksport workflow n8n — głosowanie na tematy",
+  "_status": "DO ZBUDOWANIA w Fazie 3",
+  "flow": [
+    "1. Webhook trigger (POST /cfp-vote)",
+    "2. Walidacja: email + max 3 proposal_ids",
+    "3. Google Sheets lookup: czy email już głosował?",
+    "4a. Jeśli NIE → zapisz głosy do arkusza 'Głosy'",
+    "4b. Jeśli TAK → odpowiedź 'Już oddałeś głos'",
+    "5. Email: potwierdzenie głosu",
+    "6. Respond to Webhook: {status: 'ok'}"
+  ],
+  "sheets_columns": [
+    "timestamp", "voter_email", "proposal_id_1", 
+    "proposal_id_2", "proposal_id_3"
+  ]
+}

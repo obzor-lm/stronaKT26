@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <!--
+    SZABLON: Karta prelegenta (Instagram / Facebook square)
+    Rozmiar: 1080 × 1080 px
+    
+    ZMIENNE do podmienienia:
+    - SPEAKER_NAME: imię i nazwisko
+    - SPEAKER_TITLE: tytuł prezentacji
+    - SPEAKER_PHOTO: URL zdjęcia (opcja)
+  -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: #fafaf7;
+      display: flex;
+      flex-direction: column;
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+    }
+
+    .card__header {
+      background: #1a3a5c;
+      padding: 48px 64px 32px;
+    }
+
+    .card__badge {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e8c06a;
+      margin-bottom: 8px;
+    }
+
+    .card__event {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: #ffffff;
+    }
+
+    .card__body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px;
+    }
+
+    .card__photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: #d8d7d0;
+      margin-bottom: 32px;
+      /* Podmień na zdjęcie: background: url('speaker.jpg') center/cover; */
+    }
+
+    .card__name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      color: #0f2440;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .card__talk {
+      font-size: 26px;
+      color: #5a5a55;
+      line-height: 1.4;
+      max-width: 700px;
+      border-left: 4px solid #d4a03c;
+      padding-left: 24px;
+    }
+
+    .card__footer {
+      padding: 32px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #d8d7d0;
+    }
+
+    .card__meta {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a3a5c;
+    }
+
+    .card__url {
+      font-size: 16px;
+      color: #8a8a82;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card__header">
+      <p class="card__badge">Prelegent</p>
+      <p class="card__event">Konferencja Tłumaczy 2026</p>
+    </div>
+    <div class="card__body">
+      <div class="card__photo"></div>
+      <h2 class="card__name">Imię Nazwisko</h2>
+      <p class="card__talk">Tytuł prezentacji, który zmieści się w dwóch linijkach</p>
+    </div>
+    <div class="card__footer">
+      <span class="card__meta">26 września 2026 · Warszawa</span>
+      <span class="card__url">konferencja-tlumaczy.pl</span>
+    </div>
+  </div>
+</body>
+</html>

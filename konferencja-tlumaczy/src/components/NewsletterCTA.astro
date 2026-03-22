@@ -1,0 +1,25 @@
+---
+interface Props {
+  heading?: string;
+  text?: string;
+}
+
+const {
+  heading = 'Bądź na bieżąco',
+  text = 'Zapisz się na newsletter i nie przegap ważnych informacji o konferencji.',
+} = Astro.props;
+---
+
+<section class="newsletter-cta section--alt">
+  <div class="container text-center">
+    <h2>{heading}</h2>
+    <p class="text-muted" style="max-width: 48ch; margin: 0 auto var(--spacing-md);">{text}</p>
+    <!-- 
+      TODO: Podmień na formularz n8n webhook lub link do narzędzia mailingowego.
+      Poniżej placeholder z prostym mailto.
+    -->
+    <a href="mailto:konferencja@zztp.pl?subject=Zapis na newsletter" class="btn btn--primary">
+      Zapisz się na newsletter
+    </a>
+  </div>
+</section>

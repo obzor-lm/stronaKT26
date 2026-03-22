@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Countdown from '../components/Countdown.astro';
+import NewsletterCTA from '../components/NewsletterCTA.astro';
+---
+
+<Base title="Konferencja Tłumaczy 2026" description="Konferencja Tłumaczy 2026 — 26 września, Warszawa. Dołącz do najważniejszego spotkania branży tłumaczeniowej w Polsce.">
+
+  <Hero
+    title="Konferencja Tłumaczy 2026"
+    subtitle="Najważniejsze spotkanie branży tłumaczeniowej w Polsce. Dzień pełen inspiracji, wiedzy praktycznej i networkingu."
+    ctaText="Zgłoś swój temat"
+    ctaHref="/call-for-papers/"
+    ctaSecondaryText="Dowiedz się więcej"
+    ctaSecondaryHref="/o-konferencji/"
+  />
+
+  <Countdown />
+
+  <!-- Sekcja: O co chodzi -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-lg">Dlaczego warto?</h2>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Praktyczna wiedza</h3>
+          <p>Prezentacje i warsztaty prowadzone przez praktyków. Tematy wybrane głosami uczestników — masz wpływ na program.</p>
+        </div>
+        <div class="card">
+          <h3>Networking</h3>
+          <p>Spotkaj kolegów po fachu, nawiąż nowe kontakty biznesowe i wymień się doświadczeniami przy kawie.</p>
+        </div>
+        <div class="card">
+          <h3>Branża w jednym miejscu</h3>
+          <p>Tłumacze przysięgli, konferencyjni, techniczni, literaccy — wszyscy pod jednym dachem, raz w roku.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sekcja: Kluczowe informacje -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="text-center mb-lg">Kluczowe informacje</h2>
+      <div class="grid grid--2">
+        <div class="info-block">
+          <p class="info-block__label">Data</p>
+          <p class="info-block__value">26 września 2026 (sobota)</p>
+        </div>
+        <div class="info-block">
+          <p class="info-block__label">Miejsce</p>
+          <p class="info-block__value">Warszawa</p>
+          <p class="text-muted">Dokładna lokalizacja wkrótce</p>
+        </div>
+        <div class="info-block">
+          <p class="info-block__label">Call for Papers</p>
+          <p class="info-block__value">
+            <a href="/call-for-papers/">Zgłoś swój temat prezentacji</a>
+          </p>
+          <p class="text-muted">Przyjmujemy zgłoszenia!</p>
+        </div>
+        <div class="info-block">
+          <p class="info-block__label">Organizator</p>
+          <p class="info-block__value">
+            <a href="https://zztp.pl" target="_blank" rel="noopener">ZZTP</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterCTA />
+
+</Base>
+
+<style>
+  .info-block {
+    padding: var(--spacing-md);
+  }
+
+  .info-block__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .info-block__value {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+  }
+</style>

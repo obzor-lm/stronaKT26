@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <!--
+    SZABLON: Countdown / story (Instagram/Facebook story)
+    Rozmiar: 1080 × 1920 px
+    
+    ZMIENNE:
+    - DAYS_LEFT: liczba dni
+    - MESSAGE: tekst dodatkowy
+  -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .story {
+      width: 1080px;
+      height: 1920px;
+      background: linear-gradient(180deg, #0f2440 0%, #1a3a5c 60%, #2d5f8a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+    }
+
+    .story::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 160, 60, 0.12) 0%, transparent 70%);
+    }
+
+    .story__label {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #e8c06a;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .story__number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 280px;
+      color: #ffffff;
+      line-height: 1;
+      position: relative;
+    }
+
+    .story__unit {
+      font-family: 'DM Serif Display', serif;
+      font-size: 64px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: -16px;
+      position: relative;
+    }
+
+    .story__message {
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.65);
+      max-width: 600px;
+      line-height: 1.5;
+      margin-top: 64px;
+      position: relative;
+    }
+
+    .story__event {
+      position: absolute;
+      bottom: 120px;
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.08em;
+    }
+
+    .story__url {
+      position: absolute;
+      bottom: 80px;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="story">
+    <p class="story__label">Do konferencji zostało</p>
+    <p class="story__number">30</p>
+    <p class="story__unit">dni</p>
+    <p class="story__message">Rejestracja otwarta. Zarezerwuj miejsce!</p>
+    <p class="story__event">Konferencja Tłumaczy 2026 · 26 września · Warszawa</p>
+    <p class="story__url">konferencja-tlumaczy.pl</p>
+  </div>
+</body>
+</html>

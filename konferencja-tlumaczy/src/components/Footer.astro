@@ -1,0 +1,27 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <p><strong>Konferencja Tłumaczy {year}</strong></p>
+      <p>26 września 2026 · Warszawa</p>
+      <p class="mt-sm">Organizator: <a href="https://zztp.pl" target="_blank" rel="noopener">ZZTP</a></p>
+    </div>
+    <div>
+      <p><strong>Kontakt</strong></p>
+      <p><a href="mailto:konferencja@zztp.pl">konferencja@zztp.pl</a></p>
+    </div>
+    <div>
+      <p><strong>Śledź nas</strong></p>
+      <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center mt-md" style="font-size: 0.8rem; color: var(--color-text-light);">
+    <p>&copy; {year} ZZTP. Wszelkie prawa zastrzeżone.</p>
+  </div>
+</footer>

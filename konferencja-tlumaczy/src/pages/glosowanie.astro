@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Głosowanie" description="Zagłosuj na tematy prezentacji na Konferencję Tłumaczy 2026.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__overline">Głosowanie</p>
+      <h1>Wybierz tematy</h1>
+      <p class="page-hero__lead">
+        Zagłosuj na tematy, które chcesz zobaczyć w programie konferencji. Każdy uczestnik ma 3 głosy.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow text-center">
+      <span class="badge">Wkrótce</span>
+      <h2 class="mt-md">Głosowanie jeszcze nie ruszyło</h2>
+      <p class="text-muted mt-sm">
+        Najpierw zbieramy tematy w ramach Call for Papers. Głosowanie otworzymy po zamknięciu zgłoszeń.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .page-hero__overline {
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--color-accent-dark); margin-bottom: var(--spacing-xs);
+  }
+  .page-hero__lead {
+    font-size: 1.2rem; color: var(--color-text-muted); max-width: 52ch; margin-top: var(--spacing-sm);
+  }
+</style>

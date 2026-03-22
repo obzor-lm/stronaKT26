@@ -1,0 +1,119 @@
+---
+interface Props {
+  overline?: string;
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+}
+
+const {
+  overline = '26 września 2026 · Warszawa',
+  title,
+  subtitle,
+  ctaText,
+  ctaHref,
+  ctaSecondaryText,
+  ctaSecondaryHref,
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero__content container">
+    {overline && <p class="hero__overline">{overline}</p>}
+    <h1 class="hero__title">{title}</h1>
+    {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+    {(ctaText || ctaSecondaryText) && (
+      <div class="hero__actions">
+        {ctaText && ctaHref && (
+          <a href={ctaHref} class="btn btn--accent">{ctaText}</a>
+        )}
+        {ctaSecondaryText && ctaSecondaryHref && (
+          <a href={ctaSecondaryHref} class="btn btn--outline">{ctaSecondaryText}</a>
+        )}
+      </div>
+    )}
+  </div>
+  <div class="hero__decoration" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-xl) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(
+        135deg,
+        var(--color-primary-dark) 0%,
+        var(--color-primary) 50%,
+        var(--color-primary-light) 100%
+      );
+  }
+
+  .hero__decoration {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(212, 160, 60, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(212, 160, 60, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__overline {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent-light);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero__title {
+    color: #fff;
+    max-width: 16ch;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 48ch;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .hero__actions .btn--outline {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+  .hero__actions .btn--outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--spacing-lg) 0;
+      min-height: auto;
+    }
+  }
+</style>

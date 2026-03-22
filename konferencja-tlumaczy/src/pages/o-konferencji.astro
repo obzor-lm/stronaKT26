@@ -1,0 +1,187 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Dane archiwalne — przenieś do src/data/editions.json jak urosną
+const editions = [
+  {
+    year: 2024,
+    date: '28 września 2024',
+    location: 'Warszawa',
+    attendees: null,
+    highlights: ['Tłumaczenie maszynowe w praktyce', 'AI a przyszłość zawodu', 'Panel: stawki w 2024'],
+    link: null,
+  },
+  {
+    year: 2023,
+    date: '30 września 2023',
+    location: 'Warszawa',
+    attendees: null,
+    highlights: ['Warsztaty CAT tools', 'Marketing dla tłumaczy', 'Networking'],
+    link: null,
+  },
+  // Dodaj kolejne edycje tutaj
+];
+---
+
+<Base
+  title="O konferencji"
+  description="Historia i misja Konferencji Tłumaczy — corocznego spotkania branży tłumaczeniowej w Polsce."
+>
+
+  <!-- Hero mini -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__overline">O konferencji</p>
+      <h1>Konferencja Tłumaczy</h1>
+      <p class="page-hero__lead">
+        Coroczne spotkanie polskiej branży tłumaczeniowej. Praktyczna wiedza, 
+        inspirujące prezentacje i przestrzeń do wymiany doświadczeń.
+      </p>
+    </div>
+  </section>
+
+  <!-- Misja -->
+  <section class="section">
+    <div class="container container--narrow">
+      <h2>Nasza misja</h2>
+      <p>
+        Konferencja Tłumaczy powstała z potrzeby stworzenia przestrzeni, 
+        w której tłumacze — niezależnie od specjalizacji — mogą się spotkać, 
+        podzielić wiedzą i wspólnie kształtować przyszłość zawodu.
+      </p>
+      <p>
+        Co roku zapraszamy do Warszawy tłumaczy przysięgłych, konferencyjnych, 
+        technicznych i literackich. Program budujemy razem z uczestnikami — 
+        to Wy decydujecie o tematach poprzez głosowanie.
+      </p>
+      <p>
+        Organizatorem konferencji jest 
+        <a href="https://zztp.pl" target="_blank" rel="noopener">Związek Zawodowy Tłumaczy Polskich (ZZTP)</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Edycja 2026 -->
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <h2>Edycja 2026</h2>
+      <div class="edition-highlight">
+        <div class="edition-highlight__badge">
+          <span class="badge">Nadchodząca</span>
+        </div>
+        <div>
+          <p><strong>Data:</strong> 26 września 2026 (sobota)</p>
+          <p><strong>Miejsce:</strong> Warszawa (lokalizacja wkrótce)</p>
+          <p><strong>Call for Papers:</strong> <a href="/call-for-papers/">Zgłoś swój temat</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archiwum edycji -->
+  <section class="section">
+    <div class="container container--narrow">
+      <h2>Archiwum edycji</h2>
+      <p class="text-muted mb-md">
+        Przegląd poprzednich edycji konferencji.
+      </p>
+
+      <div class="timeline">
+        {editions.map(edition => (
+          <div class="timeline__item">
+            <div class="timeline__year">{edition.year}</div>
+            <div class="timeline__content">
+              <p class="timeline__meta">
+                {edition.date} · {edition.location}
+                {edition.attendees && ` · ${edition.attendees} uczestników`}
+              </p>
+              {edition.highlights.length > 0 && (
+                <p class="timeline__highlights">
+                  {edition.highlights.join(' · ')}
+                </p>
+              )}
+              {edition.link && (
+                <p>
+                  <a href={edition.link}>Relacja z konferencji →</a>
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero__overline {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-hero__lead {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 52ch;
+    margin-top: var(--spacing-sm);
+  }
+
+  .edition-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .timeline__item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .timeline__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .timeline__year {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary);
+    min-width: 80px;
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+
+  .timeline__meta {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline__highlights {
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+</style>

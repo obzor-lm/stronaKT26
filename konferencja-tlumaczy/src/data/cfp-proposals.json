@@ -1,0 +1,13 @@
+[
+  {
+    "id": "example-001",
+    "title": "Przykładowa propozycja tematu",
+    "abstract": "Opis tematu prezentacji...",
+    "speaker_name": "Jan Kowalski",
+    "speaker_email": "jan@example.com",
+    "speaker_bio": "Tłumacz z 10-letnim doświadczeniem...",
+    "submitted_at": "2026-05-01T10:00:00Z",
+    "status": "approved",
+    "votes": 0
+  }
+]

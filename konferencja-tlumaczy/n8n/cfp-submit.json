@@ -1,0 +1,16 @@
+{
+  "_info": "Eksport workflow n8n — Call for Papers: przyjmowanie zgłoszeń",
+  "_status": "DO ZBUDOWANIA w Fazie 2",
+  "flow": [
+    "1. Webhook trigger (POST /cfp-submit)",
+    "2. Walidacja pól: imię, email, tytuł, abstrakt, bio",
+    "3. Google Sheets: append row do arkusza 'CFP'",
+    "4. Email (SMTP/Gmail): potwierdzenie do zgłaszającego",
+    "5. Slack/Email: powiadomienie do organizatora",
+    "6. Respond to Webhook: {status: 'ok', message: 'Dziękujemy!'}"
+  ],
+  "sheets_columns": [
+    "timestamp", "speaker_name", "speaker_email", 
+    "talk_title", "abstract", "speaker_bio", "status"
+  ]
+}

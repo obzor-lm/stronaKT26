@@ -1,0 +1,111 @@
+---
+interface Props {
+  targetDate?: string;
+  label?: string;
+}
+
+const {
+  targetDate = '2026-09-26T09:00:00+02:00',
+  label = 'Do konferencji zostało:',
+} = Astro.props;
+---
+
+<div class="countdown" data-target={targetDate}>
+  <p class="countdown__label">{label}</p>
+  <div class="countdown__grid">
+    <div class="countdown__item">
+      <span class="countdown__number" data-unit="days">---</span>
+      <span class="countdown__unit">dni</span>
+    </div>
+    <div class="countdown__item">
+      <span class="countdown__number" data-unit="hours">--</span>
+      <span class="countdown__unit">godzin</span>
+    </div>
+    <div class="countdown__item">
+      <span class="countdown__number" data-unit="minutes">--</span>
+      <span class="countdown__unit">minut</span>
+    </div>
+    <div class="countdown__item">
+      <span class="countdown__number" data-unit="seconds">--</span>
+      <span class="countdown__unit">sekund</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .countdown {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .countdown__label {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .countdown__grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .countdown__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 90px;
+  }
+
+  .countdown__number {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .countdown__unit {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+</style>
+
+<script>
+  function initCountdown() {
+    const el = document.querySelector('.countdown') as HTMLElement;
+    if (!el) return;
+
+    const target = new Date(el.dataset.target!).getTime();
+
+    function update() {
+      const now = Date.now();
+      const diff = Math.max(0, target - now);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const units = el.querySelectorAll<HTMLElement>('[data-unit]');
+      units.forEach(u => {
+        const unit = u.dataset.unit;
+        if (unit === 'days') u.textContent = String(days);
+        if (unit === 'hours') u.textContent = String(hours).padStart(2, '0');
+        if (unit === 'minutes') u.textContent = String(minutes).padStart(2, '0');
+        if (unit === 'seconds') u.textContent = String(seconds).padStart(2, '0');
+      });
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  initCountdown();
+</script>
