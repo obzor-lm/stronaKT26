@@ -9,16 +9,19 @@ const socialLinks = [
 
 <footer class="footer">
   <div class="footer__inner">
-    <div>
-      <p><strong>Konferencja Tłumaczy {year}</strong></p>
+    <div class="footer__col">
+      <p class="footer__heading">Konferencja Tłumaczy {year}</p>
       <p>26 września 2026 · Warszawa</p>
     </div>
-    <div>
-      <p><strong>Kontakt</strong></p>
-      <p><a href="mailto:kontakt@konferencjatlumaczy.pl">kontakt@konferencjatlumaczy.pl</a></p>
+    <div class="footer__col">
+      <p class="footer__heading">Kontakt i organizator</p>
+      <p>Textem Maria Szpor Anna Konieczna-Purchała sp.j.</p>
+      <p>ul. Belwederska 26/30 lok. 9, Warszawa</p>
+      <p>NIP: 7010398717</p>
+      <p class="footer__email"><a href="mailto:info@konferencja-tlumaczy.pl">info@konferencja-tlumaczy.pl</a></p>
     </div>
-    <div>
-      <p><strong>Śledź nas</strong></p>
+    <div class="footer__col">
+      <p class="footer__heading">Śledź nas</p>
       <div class="footer__social">
         {socialLinks.map(link => (
           <a href={link.href} target="_blank" rel="noopener" aria-label={link.label}>
@@ -26,17 +29,62 @@ const socialLinks = [
           </a>
         ))}
       </div>
+      <div class="footer__legal">
+        <a href="/regulamin/">Regulamin</a>
+        <a href="/polityka-prywatnosci/">Polityka prywatności</a>
+      </div>
     </div>
   </div>
-  <div class="container text-center mt-md" style="font-size: 0.8rem; color: var(--color-text-light);">
-    <p>&copy; {year} Konferencja Tłumaczy. Wszelkie prawa zastrzeżone.</p>
+  <div class="footer__bottom">
+    <p>&copy; {year} Textem. Wszelkie prawa zastrzeżone.</p>
   </div>
 </footer>
 
 <style>
+  .footer__col p {
+    margin-bottom: 0.25rem;
+  }
+
+  .footer__heading {
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem !important;
+  }
+
+  .footer__email {
+    margin-top: 0.5rem !important;
+  }
+
   .footer__social {
     display: flex;
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .footer__legal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-top: 0.75rem;
+  }
+
+  .footer__legal a {
+    font-size: 0.85rem;
+  }
+
+  .footer__bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-md) 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--spacing-md);
+  }
+
+  .footer__bottom p {
+    margin-bottom: 0;
+    max-width: none;
   }
 </style>

@@ -11,7 +11,7 @@ import NewsletterCTA from '../components/NewsletterCTA.astro';
     title="Konferencja Tłumaczy 2026"
     subtitle="Najważniejsze spotkanie branży tłumaczeniowej w Polsce. Dzień pełen inspiracji, wiedzy praktycznej i networkingu."
     ctaText="Zgłoś swój temat"
-    ctaHref="/call-for-papers/"
+    ctaHref="https://docs.google.com/forms/d/e/1FAIpQLSdJnZoupG1Vxv7OydSpUPGa33qsmT8rR7sOWmYFp0GBf7ZjzQ/viewform?usp=mail_form_link"
     ctaSecondaryText="Dowiedz się więcej"
     ctaSecondaryHref="/o-konferencji/"
   />
@@ -51,20 +51,47 @@ import NewsletterCTA from '../components/NewsletterCTA.astro';
         <div class="info-block">
           <p class="info-block__label">Miejsce</p>
           <p class="info-block__value">Warszawa</p>
-          <p class="text-muted">Dokładna lokalizacja wkrótce</p>
         </div>
         <div class="info-block">
           <p class="info-block__label">Call for Papers</p>
           <p class="info-block__value">
-            <a href="/call-for-papers/">Zgłoś swój temat prezentacji</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJnZoupG1Vxv7OydSpUPGa33qsmT8rR7sOWmYFp0GBf7ZjzQ/viewform?usp=mail_form_link" target="_blank" rel="noopener">Zgłoś swój temat prezentacji</a>
           </p>
           <p class="text-muted">Przyjmujemy zgłoszenia!</p>
         </div>
         <div class="info-block">
           <p class="info-block__label">Organizator</p>
-          <p class="info-block__value">Konferencja Tłumaczy</p>
+          <p class="info-block__value">Textem</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Sekcja: Opinie -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-lg">Co mówią o nas uczestnicy?</h2>
+      <div class="grid grid--2">
+        <div class="testimonial-card card">
+          <p class="testimonial-card__quote">
+            „W tym roku na KT, jak zwykle, wszystko jak w szwajcarskim zegarku, bardzo ciekawe sesje «z pazurem» i możliwość wymiany doświadczeń z koleżankami i kolegami z branży.”
+          </p>
+        </div>
+        <div class="testimonial-card card">
+          <p class="testimonial-card__quote">
+            „Organizacja konferencji na wysokim poziomie, harmonogram wydarzenia bardzo wygodny. Skuteczne przygotowanie każdego panelu, współpraca z uczestnikami, wykłady są interesujące.”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sekcja: Sponsorzy (placeholder) -->
+  <section class="section section--alt" style="display: none;">
+    <div class="container text-center">
+      <h2 class="mb-md">Sponsorzy i partnerzy</h2>
+      <p class="text-muted">Informacje o sponsorach pojawią się wkrótce.</p>
+      <!-- <div class="sponsors-grid"> ... logotypy ... </div> -->
     </div>
   </section>
 
@@ -75,6 +102,15 @@ import NewsletterCTA from '../components/NewsletterCTA.astro';
 <style>
   .info-block {
     padding: var(--spacing-md);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .info-block:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
   }
 
   .info-block__label {
@@ -90,5 +126,35 @@ import NewsletterCTA from '../components/NewsletterCTA.astro';
     font-family: var(--font-heading);
     font-size: 1.4rem;
     color: var(--color-primary-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+  }
+
+  .testimonial-card__quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-card__quote::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--color-accent-light);
+    opacity: 0.3;
+    z-index: -1;
   }
 </style>

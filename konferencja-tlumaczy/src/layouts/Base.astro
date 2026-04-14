@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname;
 
 const navLinks = [
   { href: '/', label: 'Start' },
-  { href: '/call-for-papers/', label: 'Zgłoś temat' },
+  { href: 'https://docs.google.com/forms/d/e/1FAIpQLSdJnZoupG1Vxv7OydSpUPGa33qsmT8rR7sOWmYFp0GBf7ZjzQ/viewform?usp=mail_form_link', label: 'Zgłoś temat' },
   { href: '/glosowanie/', label: 'Głosowanie' },
   { href: '/blog/', label: 'Blog' },
   { href: '/o-konferencji/', label: 'O konferencji' },
@@ -36,7 +36,7 @@ const navLinks = [
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title} | Konferencja Tłumaczy 2026</title>
+  <title>{title === 'Konferencja Tłumaczy 2026' ? title : `${title} | Konferencja Tłumaczy 2026`}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -80,7 +80,7 @@ const navLinks = [
     },
     "organizer": {
       "@type": "Organization",
-      "name": "Konferencja Tłumaczy"
+      "name": "Textem Maria Szpor Anna Konieczna-Purchała sp.j."
     },
     "image": ogImageUrl.toString(),
     "url": canonicalUrl.toString()
@@ -102,16 +102,21 @@ const navLinks = [
       </button>
 
       <ul class="nav__links" id="nav-links">
-        {navLinks.map(link => (
-          <li>
-            <a
-              href={link.href}
-              aria-current={currentPath === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {navLinks.map(link => {
+          const isExternal = link.href.startsWith('http');
+          return (
+            <li>
+              <a
+                href={link.href}
+                aria-current={!isExternal && currentPath === link.href ? 'page' : undefined}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   </nav>

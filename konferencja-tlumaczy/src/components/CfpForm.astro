@@ -399,7 +399,7 @@ const formats = [
           const body = encodeURIComponent(
             Object.entries(data).map(([k, v]) => `${k}: ${v}`).join('\n\n')
           );
-          window.location.href = `mailto:kontakt@konferencjatlumaczy.pl?subject=${subject}&body=${body}`;
+          window.location.href = `mailto:info@konferencja-tlumaczy.pl?subject=${subject}&body=${body}`;
           status.textContent = 'Otwieram klienta email — wyślij wiadomość, żeby dokończyć zgłoszenie.';
           status.classList.add('success');
           submitBtn.disabled = false;
@@ -424,7 +424,7 @@ const formats = [
           throw new Error('Błąd serwera');
         }
       } catch {
-        status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na kontakt@konferencjatlumaczy.pl.';
+        status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na info@konferencja-tlumaczy.pl.';
         status.classList.add('error');
         submitBtn.disabled = false;
       }
