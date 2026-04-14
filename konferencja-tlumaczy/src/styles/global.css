@@ -30,7 +30,7 @@
   --color-info: #2980b9;
 
   /* === TYPOGRAFIA === */
-  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-heading: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
@@ -72,23 +72,25 @@ body {
 /* === TYPOGRAFIA === */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--color-primary-dark);
 }
 
 h1 {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 h2 {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
   margin-bottom: var(--spacing-md);
 }
 
 h3 {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
+  letter-spacing: -0.02em;
   margin-bottom: var(--spacing-sm);
 }
 
