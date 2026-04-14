@@ -9,20 +9,20 @@
 
 :root {
   /* === KOLORY BRANDINGU — ZMIEŃ NA SWOJE === */
-  --color-primary: #1a3a5c;        /* główny kolor (navy) */
-  --color-primary-light: #2d5f8a;  /* jaśniejszy wariant */
-  --color-primary-dark: #0f2440;   /* ciemniejszy wariant */
-  --color-accent: #d4a03c;         /* akcent (złoty) */
-  --color-accent-light: #e8c06a;
-  --color-accent-dark: #b0832a;
+  --color-primary: #c2000b;
+  --color-primary-light: #da4c65;
+  --color-primary-dark: #8f0008;
+  --color-accent: #da4c65;
+  --color-accent-light: #f3c6cf;
+  --color-accent-dark: #c2000b;
 
   /* Neutralne */
-  --color-bg: #fafaf7;
-  --color-bg-alt: #f0efe8;
-  --color-text: #1c1c1a;
-  --color-text-muted: #5a5a55;
-  --color-text-light: #8a8a82;
-  --color-border: #d8d7d0;
+  --color-bg: #f7f7f9;
+  --color-bg-alt: #dbdce1;
+  --color-text: #24171a;
+  --color-text-muted: #6d4a51;
+  --color-text-light: #9a8c91;
+  --color-border: #cfd1d8;
 
   /* Semantyczne */
   --color-success: #2d7a4f;
@@ -157,7 +157,7 @@ strong {
   background-color: var(--color-primary-light);
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
+  box-shadow: 0 4px 12px rgba(194, 0, 11, 0.28);
 }
 
 .btn--accent {
@@ -168,7 +168,7 @@ strong {
 .btn--accent:hover {
   background-color: var(--color-accent-light);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(212, 160, 60, 0.3);
+  box-shadow: 0 4px 12px rgba(218, 76, 101, 0.28);
 }
 
 .btn--outline {
@@ -223,7 +223,7 @@ strong {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250, 250, 247, 0.92);
+  background: rgba(247, 247, 249, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -240,16 +240,15 @@ strong {
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  color: var(--color-primary-dark);
+  line-height: 0;
+  flex-shrink: 0;
 }
 
 .nav__logo img {
-  height: 36px;
+  height: 64px;
   width: auto;
+  display: block;
 }
 
 .nav__links {
@@ -292,6 +291,10 @@ strong {
 
 @media (max-width: 768px) {
   .nav__toggle { display: block; }
+
+  .nav__logo img {
+    height: 50px;
+  }
   
   .nav__links {
     display: none;
