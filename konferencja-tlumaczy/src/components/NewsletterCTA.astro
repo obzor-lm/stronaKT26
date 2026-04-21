@@ -15,116 +15,366 @@ const {
     <h2>{heading}</h2>
     <p class="text-muted" style="max-width: 48ch; margin: 0 auto var(--spacing-md);">{text}</p>
 
-    <form class="newsletter-form" id="newsletter-form">
-      <div class="newsletter-form__row">
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="Twój adres email"
-          autocomplete="email"
-          class="newsletter-form__input"
-        />
-        <button type="submit" class="btn btn--primary newsletter-form__btn">
-          Zapisz się
-        </button>
+    <div id="mlb2-7953505" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-7953505">
+      <div class="ml-form-align-center">
+        <div class="ml-form-embedWrapper embedForm">
+          <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+            <div class="ml-form-embedContent" style="margin-bottom: 0;"></div>
+
+            <form
+              class="ml-block-form"
+              action="https://assets.mailerlite.com/jsonp/441787/forms/100138964970637257/subscribe"
+              data-code=""
+              method="post"
+              target="_blank"
+            >
+              <div class="ml-form-formContent horozintalForm">
+                <div class="ml-form-horizontalRow">
+                  <div class="ml-input-horizontal">
+                    <div style="width: 100%;" class="horizontal-fields">
+                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                        <input
+                          type="email"
+                          class="form-control"
+                          data-inputmask=""
+                          name="fields[email]"
+                          placeholder="E-mail"
+                          autocomplete="email"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ml-button-horizontal primary">
+                    <button type="submit" class="primary">Chcę się zapisać!</button>
+                    <button disabled="disabled" style="display: none;" type="button" class="loading">
+                      <div class="ml-form-embedSubmitLoad"></div>
+                      <span class="sr-only">Loading...</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ml-form-checkboxRow ml-validate-required">
+                <label class="checkbox">
+                  <input type="checkbox" required />
+                  <div class="label-description">
+                    <p>
+                      Zgadzam się na otrzymywanie newslettera Konferencji Tłumaczy.
+                      Zdaję sobie sprawę, że w każdej chwili mogę się wypisać z listy.
+                      Więcej informacji w <span><a href="/polityka-prywatnosci/">polityce prywatności</a></span>.
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              <input type="hidden" name="ml-submit" value="1" />
+
+              <div class="ml-mobileButton-horizontal">
+                <button type="submit" class="primary">Chcę się zapisać!</button>
+                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Loading...</span>
+                </button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true" />
+            </form>
+          </div>
+
+          <div class="ml-form-successBody row-success" style="display: none">
+            <div class="ml-form-successContent">
+              <h4>Dziękujemy!</h4>
+              <p>Twój adres został zapisany do newslettera.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="newsletter-form__consent text-muted">
-        Klikając „Zapisz się" wyrażasz zgodę na otrzymywanie informacji o Konferencji Tłumaczy.
-        Możesz się wypisać w każdej chwili.
-      </p>
-      <p class="newsletter-form__status" id="newsletter-status" aria-live="polite"></p>
-    </form>
+    </div>
   </div>
 </section>
 
-<style>
-  .newsletter-form__row {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 480px;
-    margin: 0 auto;
+<style is:global>
+  @import url("https://assets.mlcdn.com/fonts.css?version=1694771");
+
+  .ml-form-embedSubmitLoad {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
   }
 
-  .newsletter-form__input {
-    flex: 1;
-    min-width: 220px;
-    padding: 0.85rem 1.25rem;
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .ml-form-embedSubmitLoad:after {
+    content: " ";
+    display: block;
+    width: 11px;
+    height: 11px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    border-color: #ffffff #ffffff #ffffff transparent;
+    animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+  }
+
+  @keyframes ml-form-embedSubmitLoad {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #mlb2-7953505.ml-form-embedContainer {
+    box-sizing: border-box;
+    display: table;
+    margin: 0 auto;
+    width: 100% !important;
+    max-width: 600px;
+  }
+
+  #mlb2-7953505.ml-form-embedContainer h4,
+  #mlb2-7953505.ml-form-embedContainer p,
+  #mlb2-7953505.ml-form-embedContainer span,
+  #mlb2-7953505.ml-form-embedContainer button {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+  }
+
+  #mlb2-7953505 .ml-form-embedWrapper {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    display: inline-block !important;
+    width: 100%;
+  }
+
+  #mlb2-7953505 .ml-form-embedBody,
+  #mlb2-7953505 .ml-form-successBody {
+    padding: 0;
+  }
+
+  #mlb2-7953505 .ml-form-embedContent,
+  #mlb2-7953505 .ml-form-successContent {
+    margin: 0 0 20px 0;
+    text-align: left;
+  }
+
+  #mlb2-7953505 .ml-form-successContent h4 {
+    color: var(--color-primary-dark);
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+
+  #mlb2-7953505 .ml-form-successContent p {
+    color: var(--color-text);
     font-family: var(--font-body);
     font-size: 1rem;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius);
-    background: #fff;
-    color: var(--color-text);
-    transition: border-color 0.2s;
+    line-height: 1.6;
+    margin: 0;
   }
 
-  .newsletter-form__input:focus {
+  #mlb2-7953505 .ml-block-form .ml-field-group {
+    text-align: left !important;
+  }
+
+  #mlb2-7953505 form {
+    margin: 0;
+    width: 100%;
+  }
+
+  #mlb2-7953505 .ml-form-formContent,
+  #mlb2-7953505 .ml-form-checkboxRow {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+
+  #mlb2-7953505 .ml-form-formContent.horozintalForm {
+    padding: 0 0 20px 0;
+    width: 100%;
+  }
+
+  #mlb2-7953505 .ml-form-horizontalRow {
+    display: flex;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  #mlb2-7953505 .ml-input-horizontal {
+    flex: 1 1 auto;
+  }
+
+  #mlb2-7953505 .horizontal-fields {
+    width: 100%;
+  }
+
+  #mlb2-7953505 input[type="email"] {
+    background-color: #ffffff !important;
+    color: var(--color-text) !important;
+    border: 2px solid var(--color-border) !important;
+    border-radius: var(--radius) !important;
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    padding: 0.85rem 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #mlb2-7953505 input[type="email"]:focus {
     outline: none;
+    border-color: var(--color-primary) !important;
+  }
+
+  #mlb2-7953505 input[type="email"]::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  #mlb2-7953505 .ml-button-horizontal,
+  #mlb2-7953505 .ml-mobileButton-horizontal {
+    flex: 0 0 auto;
+  }
+
+  #mlb2-7953505 .ml-button-horizontal button,
+  #mlb2-7953505 .ml-mobileButton-horizontal button,
+  #mlb2-7953505 .ml-form-embedSubmit button {
+    background-color: var(--color-primary) !important;
+    border: none !important;
+    border-radius: var(--radius) !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    cursor: pointer;
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    padding: 0.85rem 1.5rem !important;
+    height: 100%;
+    width: 100%;
+  }
+
+  #mlb2-7953505 .ml-button-horizontal button:hover,
+  #mlb2-7953505 .ml-mobileButton-horizontal button:hover,
+  #mlb2-7953505 .ml-form-embedSubmit button:hover {
+    background-color: var(--color-primary-light) !important;
+  }
+
+  #mlb2-7953505 .ml-form-checkboxRow {
+    margin: 0 auto;
+    max-width: 520px;
+  }
+
+  #mlb2-7953505 .ml-form-checkboxRow input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin-top: 5px;
+    margin-left: -1.5rem;
+    overflow: visible;
+  }
+
+  #mlb2-7953505 .ml-form-checkboxRow label {
+    position: relative;
+    display: block;
+    min-height: 24px;
+    padding-left: 24px;
+    text-align: left;
+  }
+
+  #mlb2-7953505 .ml-form-checkboxRow .label-description {
+    color: var(--color-text);
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  #mlb2-7953505 .ml-form-checkboxRow .label-description::before {
+    position: absolute;
+    top: 2px;
+    left: -1.5rem;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: "";
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+
+  #mlb2-7953505 .ml-form-checkboxRow input[type="checkbox"]:checked ~ .label-description::before {
+    background-color: var(--color-primary);
     border-color: var(--color-primary);
   }
 
-  .newsletter-form__consent {
-    font-size: 0.78rem;
-    max-width: 420px;
-    margin: var(--spacing-sm) auto 0;
+  #mlb2-7953505 .ml-form-checkboxRow input[type="checkbox"]:checked ~ .label-description::after {
+    content: "";
+    position: absolute;
+    left: -1.16rem;
+    top: 6px;
+    width: 5px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
   }
 
-  .newsletter-form__status {
-    margin-top: var(--spacing-sm);
-    font-weight: 500;
-    font-size: 0.95rem;
+  #mlb2-7953505 .ml-form-checkboxRow a {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
-  .newsletter-form__status.success { color: var(--color-success); }
-  .newsletter-form__status.error { color: var(--color-error); }
+  #mlb2-7953505 .row-success {
+    text-align: center;
+  }
 
-  @media (max-width: 480px) {
-    .newsletter-form__btn {
+  .ml-mobileButton-horizontal {
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #mlb2-7953505 .ml-form-formContent.horozintalForm {
+      padding: 0 0 10px 0 !important;
+    }
+
+    #mlb2-7953505 .ml-form-horizontalRow {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    #mlb2-7953505 .ml-button-horizontal {
+      display: none !important;
+    }
+
+    .ml-mobileButton-horizontal {
+      display: inline-block !important;
+      margin-bottom: 20px;
       width: 100%;
     }
   }
 </style>
 
-<script>
-  const form = document.getElementById('newsletter-form') as HTMLFormElement;
-  const status = document.getElementById('newsletter-status') as HTMLElement;
+<script is:inline>
+  function ml_webform_success_7953505() {
+    const mailerLite = window.ml_jQuery || window.jQuery;
+    if (!mailerLite) return;
+    mailerLite('.ml-subscribe-form-7953505 .row-success').show();
+    mailerLite('.ml-subscribe-form-7953505 .row-form').hide();
+  }
+</script>
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = new FormData(form).get('email') as string;
-
-    status.textContent = 'Zapisuję...';
-    status.className = 'newsletter-form__status';
-
-    try {
-      const webhookUrl = (form.dataset.webhook || '').trim();
-      if (!webhookUrl) {
-        // Fallback: mailto if no webhook configured yet
-        window.location.href = `mailto:info@konferencja-tlumaczy.pl?subject=Zapis na newsletter&body=Proszę o zapisanie na newsletter: ${encodeURIComponent(email)}`;
-        status.textContent = 'Otwieram klienta email...';
-        status.classList.add('success');
-        return;
-      }
-
-      const res = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-
-      if (res.ok) {
-        status.textContent = 'Dziękujemy! Sprawdź swoją skrzynkę.';
-        status.classList.add('success');
-        form.reset();
-      } else {
-        throw new Error('Błąd serwera');
-      }
-    } catch {
-      status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz na info@konferencja-tlumaczy.pl.';
-      status.classList.add('error');
-    }
-  });
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v1f25ee4b05f240a833e02c19975434a4" type="text/javascript"></script>
+<script is:inline>
+  fetch("https://assets.mailerlite.com/jsonp/441787/forms/100138964970637257/takel");
 </script>

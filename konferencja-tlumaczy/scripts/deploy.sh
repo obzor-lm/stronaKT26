@@ -24,7 +24,7 @@ elif [ -n "${FTP_HOST:-}" ] && [ -n "${FTP_USER:-}" ] && [ -n "${FTP_PASS:-}" ];
   lftp -e "
     set ssl:verify-certificate no;
     mirror --reverse --delete --verbose \
-      dist/ /public_html/konferencja/;
+      dist/ /public_html/;
     quit
   " -u "${FTP_USER},${FTP_PASS}" "${FTP_HOST}"
 else
