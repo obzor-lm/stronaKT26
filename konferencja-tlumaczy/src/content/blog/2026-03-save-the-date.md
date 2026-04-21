@@ -14,10 +14,10 @@ Mamy przyjemność ogłosić datę kolejnej edycji Konferencji Tłumaczy!
 
 ## Co planujemy?
 
-Jak co roku — program budujemy razem z Wami. Wkrótce otworzymy **Call for Papers**, w ramach którego będziecie mogli zgłaszać tematy prezentacji. Następnie — głosowanie, w którym to Wy zdecydujecie, co znajdzie się w programie.
+Jak co roku — program budujemy razem z Wami. Wkrótce otworzymy **Wołanie o papiery**, w ramach którego będziecie mogli zgłaszać tematy prezentacji. Następnie — głosowanie, w którym to Wy zdecydujecie, co znajdzie się w programie.
 
 ## Bądź na bieżąco
 
-Zapisz się na newsletter, żeby nie przegapić otwarcia Call for Papers i innych ważnych informacji.
+Zapisz się na newsletter, żeby nie przegapić otwarcia Wołania o papiery i innych ważnych informacji.
 
 Do zobaczenia we wrześniu!
