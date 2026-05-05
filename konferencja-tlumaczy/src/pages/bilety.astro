@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Bilety"
+  description="Kup bilet na Konferencję Tłumaczy 2026 w Warszawie."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__overline">Rejestracja</p>
+      <h1>Bilety</h1>
+      <p class="page-hero__lead">
+        Kup bilet na Konferencję Tłumaczy 2026.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="konfeo-embed">
+        <script type="text/javascript" src="https://kt2026.konfeo.com/iframeResizer-4.min.js"></script>
+        <iframe
+          src="https://kt2026.konfeo.com/pl/groups?iframe=2"
+          id="iframe80982"
+          onload="window.iFrameResize && window.iFrameResize({}, '#iframe80982')"
+          frameborder="0"
+          title="Formularz zakupu biletów Konferencji Tłumaczy 2026"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .konfeo-embed {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+  }
+
+  .konfeo-embed iframe {
+    width: 1px;
+    min-width: 100%;
+    min-height: 720px;
+  }
+</style>

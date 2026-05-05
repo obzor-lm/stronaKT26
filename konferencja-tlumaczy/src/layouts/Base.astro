@@ -24,6 +24,7 @@ const currentPath = Astro.url.pathname;
 
 const navLinks = [
   { href: '/', label: 'Start' },
+  { href: '/bilety/', label: 'Bilety' },
   { href: 'https://docs.google.com/forms/d/e/1FAIpQLSdJnZoupG1Vxv7OydSpUPGa33qsmT8rR7sOWmYFp0GBf7ZjzQ/viewform?usp=mail_form_link', label: 'Zgłoś temat' },
   { href: '/o-konferencji/', label: 'O konferencji' },
 ];
@@ -57,6 +58,20 @@ const navLinks = [
   <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="/favicon.png" />
 
+  <!-- Meta Pixel -->
+  <script is:inline>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1066849812043922');
+    fbq('track', 'PageView');
+  </script>
+
   <!-- JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -85,6 +100,16 @@ const navLinks = [
   })} />
 </head>
 <body>
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1066849812043922&ev=PageView&noscript=1"
+      alt=""
+    />
+  </noscript>
+
   <!-- Nawigacja -->
   <nav class="nav" aria-label="Nawigacja główna">
     <div class="nav__inner">
@@ -134,6 +159,31 @@ const navLinks = [
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       links?.classList.toggle('open');
+    });
+  </script>
+
+  <script is:inline>
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a');
+      if (!link || typeof fbq !== 'function') return;
+
+      if (link.href.includes('docs.google.com/forms')) {
+        fbq('trackCustom', 'WołanieOPapieryClick', {
+          content_name: 'Google Forms CFP',
+          destination: link.href,
+        });
+      }
+    });
+
+    document.addEventListener('submit', (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement) || typeof fbq !== 'function') return;
+
+      if (form.action.includes('mailerlite.com')) {
+        fbq('track', 'Lead', {
+          content_name: 'Newsletter signup',
+        });
+      }
     });
   </script>
 </body>
