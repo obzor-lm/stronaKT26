@@ -3,6 +3,8 @@
     "year": 2025,
     "date": "27 września 2025",
     "location": "Warszawa",
+    "format": "Hybryda",
+    "theme": null,
     "attendees": null,
     "highlights": [],
     "link": null
@@ -11,16 +13,130 @@
     "year": 2024,
     "date": "28 września 2024",
     "location": "Warszawa",
+    "format": "Hybryda (wspólnie z TLC)",
+    "theme": "Ludzie zmiany / Ludzie! Zmiany!",
     "attendees": null,
-    "highlights": ["Tłumaczenie maszynowe w praktyce", "AI a przyszłość zawodu", "Panel: stawki w 2024"],
+    "highlights": [],
     "link": null
   },
   {
     "year": 2023,
     "date": "30 września 2023",
     "location": "Warszawa",
+    "format": "Hybryda",
+    "theme": "Inteligencja: językowa, społeczna, emocjonalna, sztuczna?",
     "attendees": null,
-    "highlights": ["Warsztaty CAT tools", "Marketing dla tłumaczy", "Networking"],
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2022,
+    "date": null,
+    "location": null,
+    "format": "Hybryda (wspólnie z TLC)",
+    "theme": "POWER",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2021,
+    "date": null,
+    "location": null,
+    "format": "Online (wspólnie z TLC)",
+    "theme": "GAP: Rozwój, automatyzacja, profesjonalizm",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2020,
+    "date": null,
+    "location": null,
+    "format": "Online (wspólnie z TLC)",
+    "theme": "Komunikacja! Specjalizacja, biznes, kultura",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2019,
+    "date": null,
+    "location": null,
+    "format": null,
+    "theme": "Tłumaczenia na fali zmian",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2018,
+    "date": null,
+    "location": null,
+    "format": null,
+    "theme": "RuszA.I.my w przyszłość!",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2017,
+    "date": null,
+    "location": null,
+    "format": null,
+    "theme": "Hossa w świecie tłumaczeń",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2016,
+    "date": null,
+    "location": null,
+    "format": "Wspólnie z TLC",
+    "theme": "Dlaczego tłumaczyć?",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2015,
+    "date": null,
+    "location": null,
+    "format": "Wspólnie z TLC",
+    "theme": "Eksperci w działaniu",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2014,
+    "date": null,
+    "location": null,
+    "format": "Wspólnie z TLC",
+    "theme": "Komunikacja techniczna, duże zbiory danych, budowanie zespołu i ciągły rozwój zawodowy",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2013,
+    "date": null,
+    "location": null,
+    "format": "Wspólnie z TLC",
+    "theme": "Chmura obliczeniowa i technologie mobilne w branży tłumaczeniowej",
+    "attendees": null,
+    "highlights": [],
+    "link": null
+  },
+  {
+    "year": 2012,
+    "date": null,
+    "location": null,
+    "format": "Wspólnie z TLC",
+    "theme": "Tłumaczenie maszynowe i przyszłość narzędzi CAT",
+    "attendees": null,
+    "highlights": [],
     "link": null
   }
 ]

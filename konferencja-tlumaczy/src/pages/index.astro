@@ -61,7 +61,10 @@ import NewsletterCTA from '../components/NewsletterCTA.astro';
         </div>
         <div class="info-block">
           <p class="info-block__label">Organizator</p>
-          <p class="info-block__value">Textem</p>
+          <p class="info-block__value info-block__value--organizer">
+            <img src="/textem-logo.png" alt="Logo Textem" class="organizer-logo" loading="lazy" />
+            <span>Textem</span>
+          </p>
         </div>
       </div>
     </div>
@@ -127,6 +130,18 @@ import NewsletterCTA from '../components/NewsletterCTA.astro';
     font-size: 1.4rem;
     color: var(--color-primary-dark);
     margin-bottom: 0.25rem;
+  }
+
+  .info-block__value--organizer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .organizer-logo {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
   }
 
   .testimonial-card {

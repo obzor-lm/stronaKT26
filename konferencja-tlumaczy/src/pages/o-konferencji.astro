@@ -32,7 +32,7 @@ const editions = editionsData;
         podzielić wiedzą i wspólnie kształtować przyszłość zawodu.
       </p>
       <p>
-        Co roku zapraszamy do Warszawy tłumaczy przysięgłych, konferencyjnych, 
+        Co roku zapraszamy tłumaczy przysięgłych, konferencyjnych, 
         technicznych i literackich. Program budujemy razem z uczestnikami — 
         to Wy decydujecie o tematach poprzez głosowanie.
       </p>
@@ -70,13 +70,24 @@ const editions = editionsData;
 
       <div class="timeline">
         {editions.map(edition => (
+          (() => {
+            const metaParts = [
+              edition.date,
+              edition.location,
+              edition.format,
+              edition.attendees ? `${edition.attendees} uczestników` : null,
+            ].filter(Boolean);
+
+            return (
           <div class="timeline__item">
             <div class="timeline__year">{edition.year}</div>
             <div class="timeline__content">
-              <p class="timeline__meta">
-                {edition.date} · {edition.location}
-                {edition.attendees && ` · ${edition.attendees} uczestników`}
-              </p>
+              {metaParts.length > 0 && <p class="timeline__meta">{metaParts.join(' · ')}</p>}
+              {edition.theme && (
+                <p class="timeline__theme">
+                  <strong>Motyw przewodni:</strong> {edition.theme}
+                </p>
+              )}
               {edition.highlights.length > 0 && (
                 <p class="timeline__highlights">
                   {edition.highlights.join(' · ')}
@@ -89,6 +100,8 @@ const editions = editionsData;
               )}
             </div>
           </div>
+            );
+          })()
         ))}
       </div>
     </div>
@@ -143,5 +156,9 @@ const editions = editionsData;
   .timeline__highlights {
     font-size: 0.95rem;
     color: var(--color-text);
+  }
+
+  .timeline__theme {
+    margin-bottom: 0.5rem;
   }
 </style>
